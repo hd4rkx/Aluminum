@@ -511,7 +511,7 @@ local game_support = {
     textButton.Active = true
     textButton.Draggable = true
     textButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    textButton.BackgroundTransparency = 0.350
+    textButton.BackgroundTransparency = 1
     textButton.Size = UDim2.new(0, 90, 0, 90)
     textButton.Text = "-----"
     textButton.Position = UDim2.new(0.5, -25, 0.5, -25)
@@ -651,7 +651,7 @@ Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
     end
 end
 
-ImageButton.MouseButton1Click:Connect(toggleLock)
+TextButton.MouseButton1Click:Connect(toggleLock)
 
 UserInputService.InputBegan:Connect(function(input, processed)
     if not processed and input.KeyCode == Enum.KeyCode.DPadUp then
