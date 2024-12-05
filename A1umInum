@@ -424,7 +424,7 @@ local function initializeToggleButton(screenGui)
     local button = Instance.new("TextButton")
     button.Size = UDim2.new(0, 100, 0, 60)
     button.Position = UDim2.new(1, -100, 0, 80)
-    button.Text = "Toggle UI"
+    button.Text = "{}"
     button.Font = Enum.Font.SourceSansBold
     button.TextSize = 14
     button.BackgroundColor3 = Color3.new(0, 0, 0)
