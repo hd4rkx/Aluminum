@@ -505,20 +505,20 @@ local game_support = {
     Sigmaballs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     Sigmaballs.ResetOnSpawn = false
 
-    local textButton = Instance.new("TextButton")
-    textButton.Name = "TextButton"
-    textButton.Parent = Sigmaballs
-    textButton.Active = true
-    textButton.Draggable = true
-    textButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    textButton.BackgroundTransparency = 1
-    textButton.Size = UDim2.new(0, 90, 0, 90)
-    textButton.Text = "-----"
-    textButton.Position = UDim2.new(0.5, -25, 0.5, -25)
+    local textButton = Instance.new("ImageButton")
+    ImageButton.Name = "ImageButton"
+    ImageButton.Parent = Sigmaballs
+    ImageButton.Active = true
+    ImageButton.Draggable = true
+    ImageButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    ImageButton.BackgroundTransparency = 1
+    ImageButton.Size = UDim2.new(0, 90, 0, 90)
+    ImageButton.Image = "rbxassetid://134820707156642"
+    ImageButton.Position = UDim2.new(0.5, -25, 0.5, -25)
 
     local Ui2corner = Instance.new("UICorner")
     Ui2corner.CornerRadius = UDim.new(0.2, 0)
-    Ui2corner.Parent = TextButton
+    Ui2corner.Parent = ImageButton
 
 
 local player = game.Players.LocalPlayer
@@ -629,7 +629,7 @@ end
 
 local function toggleLock()
     if enabled then
-        TextButton.Text = "-----"
+        ImageButton.Image = "rbxassetid://134820707156642"
         enabled = false
         Plr = nil
         destroyTracer()  
@@ -643,7 +643,7 @@ local function toggleLock()
             createTracer(game.Players.LocalPlayer, Plr)  
         end
             
-            TextButton.Text = "___"
+            ImageButton.Image = "rbxassetid://78342062013795"
 Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
             
             )
@@ -651,7 +651,7 @@ Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
     end
 end
 
-TextButton.MouseButton1Click:Connect(toggleLock)
+ImageButton.MouseButton1Click:Connect(toggleLock)
 
 UserInputService.InputBegan:Connect(function(input, processed)
     if not processed and input.KeyCode == Enum.KeyCode.DPadUp then
