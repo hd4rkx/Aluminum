@@ -513,12 +513,12 @@ local game_support = {
     textButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     textButton.BackgroundTransparency = 0.350
     textButton.Size = UDim2.new(0, 90, 0, 90)
-    textButton.Text = "-"
+    textButton.Text = "-----"
     textButton.Position = UDim2.new(0.5, -25, 0.5, -25)
 
     local Ui2corner = Instance.new("UICorner")
     Ui2corner.CornerRadius = UDim.new(0.2, 0)
-    Ui2corner.Parent = ImageButton
+    Ui2corner.Parent = TextButton
 
 
 local player = game.Players.LocalPlayer
@@ -629,7 +629,7 @@ end
 
 local function toggleLock()
     if enabled then
-        TextButton.Text = "-"
+        TextButton.Text = "-----"
         enabled = false
         Plr = nil
         destroyTracer()  
@@ -643,7 +643,7 @@ local function toggleLock()
             createTracer(game.Players.LocalPlayer, Plr)  
         end
             
-            TextButton.text = "_"
+            TextButton.text = "___"
 Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
             
             )
