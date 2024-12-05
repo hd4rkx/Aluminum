@@ -505,8 +505,8 @@ local game_support = {
     Sigmaballs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     Sigmaballs.ResetOnSpawn = false
 
-    local textButton = Instance.new("Button")
-    textButton.Name = "textButton"
+    local textButton = Instance.new("TextButton")
+    textButton.Name = "TextButton"
     textButton.Parent = Sigmaballs
     textButton.Active = true
     textButton.Draggable = true
@@ -629,7 +629,7 @@ end
 
 local function toggleLock()
     if enabled then
-        textButton.Text = "-"
+        TextButton.Text = "-"
         enabled = false
         Plr = nil
         destroyTracer()  
@@ -643,7 +643,7 @@ local function toggleLock()
             createTracer(game.Players.LocalPlayer, Plr)  
         end
             
-            textButton.text = "_"
+            TextButton.text = "_"
 Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
             
             )
