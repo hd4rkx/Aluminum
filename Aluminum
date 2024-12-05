@@ -639,7 +639,6 @@ local function toggleLock()
         Plr = nil
         destroyTracer()  
 
-    else
         Plr = SigmaOhioPlayer()
         if Plr then
             enabled = true
