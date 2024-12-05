@@ -643,7 +643,7 @@ local function toggleLock()
             createTracer(game.Players.LocalPlayer, Plr)  
         end
             
-            TextButton.text = "___"
+            TextButton.Text = "___"
 Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
             
             )
