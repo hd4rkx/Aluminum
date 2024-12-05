@@ -506,7 +506,7 @@ local game_support = {
     Sigmaballs.ResetOnSpawn = false
 
     local textButton = Instance.new("Button")
-    textButton.Name = "ImageButton"
+    textButton.Name = "textButton"
     textButton.Parent = Sigmaballs
     textButton.Active = true
     textButton.Draggable = true
