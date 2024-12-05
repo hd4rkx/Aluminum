@@ -716,48 +716,6 @@ end
 
 aluminum.Loaded = true
 
-local function ToggleLock()
-    if AimlockState then
-        Locked = not Locked
-        if Locked then
-            Victim = GetClosestPlayer()
-            target = Victim
-            if Victim then
-                if aluminum.Enabled then
-                    Library:Notify('Locked On: ' .. tostring(Victim.Name))
-                end
-                if aluminum.targetaim.enabled then
-                    aluminum.targetaim["Toggled"] = true
-                    Library:Notify('Locked On: ' .. tostring(target.Name))
-                end
-            else
-                if aluminum.Enabled then
-                    Library:Notify('Camlock: No target found')
-                end
-                if aluminum.targetaim.enabled then
-                    aluminum.targetaim["Toggled"] = false
-                    Library:Notify('Target Lock: No target found')
-                end
-            end
-        else
-            Victim = nil
-            target = nil
-            if aluminum.Enabled then
-                Library:Notify('Camlock: Unlocked!')
-            end
-            if aluminum.targetaim.enabled then
-                aluminum.targetaim["Toggled"] = false
-                Library:Notify('Target Lock: Unlocked!')
-            end
-        end
-    else
-        if not aluminum.Enabled then
-            Library:Notify('Camlock not enabled')
-        end
-    end
-end
-
-
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 local userInputService = game:GetService("UserInputService")
@@ -801,7 +759,7 @@ function spawnButton()
             button = Instance.new("TextButton")
             button.Name = "LockButton"
             button.Size = UDim2.new(0, 100, 0, 50)
-            button.Position = UDim2.new(0.5, -100, 0.8, -25)
+            button.Position = UDim2.new(0.5, 1279, 0.8, 817)
             button.Text = "•"
             button.TextSize = 30
             button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
