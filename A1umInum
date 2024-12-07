@@ -17,7 +17,7 @@ wait(1)
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 local Window = Library:CreateWindow({
-    Title = 'aluminum.Tech',
+    Title = 'Aluminum',
     Center = true,
     AutoShow = true,
 })
@@ -70,7 +70,7 @@ local Tabs = {
 }
 
 
-Library:SetWatermarkVisibility(true)
+Library:SetWatermarkVisibility(false)
 
 
 local FrameTimer = tick()
@@ -86,7 +86,7 @@ local WatermarkConnection = game:GetService('RunService').RenderStepped:Connect(
         FrameCounter = 0;
     end;
 
-    Library:SetWatermark(('aluminum.Tech | %s fps | %s ms'):format(
+    Library:SetWatermark(('Aluminum | %s fps | %s ms'):format(
         math.floor(FPS),
         math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
     ));
@@ -108,7 +108,7 @@ getgenv().aluminum = {
     Enabled = true,
     HorizontalPrediction = 0.16,
     VerticalPrediction = 0.16,
-    jumpoffset = -0.3,
+    jumpoffset = -1,
     ResolverEnabled = false,
     SelectedPart = "UpperTorso",
     AutoPrediction = true,
@@ -118,7 +118,7 @@ getgenv().aluminum = {
     NoGroundShot = true,
     AutoAir = true,
     LookAt = false,
-    smoothness = 0.169,
+    smoothness = 0.139,
     TracerEnabled = false
 }
 
