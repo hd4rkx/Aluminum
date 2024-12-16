@@ -666,7 +666,7 @@ __index = hookmetamethod(game, "__index", function(t, k)
         local SelectedPart = Aiming.SelectedPart
 
         -- // Hit/Target
-        if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+        if (getgenv().aluminum.LockType == "Index" and (k == "Hit" or k == "Target")) then
             -- // Hit to account prediction
             local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
 
