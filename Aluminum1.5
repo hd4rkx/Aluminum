@@ -468,7 +468,6 @@ end
 local screenGui = createScreenGui()
 initializeToggleButton(screenGui)
 
-getgenv().aluminum.LockType = "Index"
 getgenv().aluminum.RESOLVER = "MoveDirection"
 
 
@@ -663,12 +662,12 @@ __index = hookmetamethod(game, "__index", function(t, k)
     -- // Check if it trying to get our mouse's hit or target and see if we can use it
     if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
         -- // Vars
-        local SelectedPart = Aiming.SelectedPart
+        local SelectedPart = getgenv().aluminum.SelectedPart
 
         -- // Hit/Target
-        if (getgenv().aluminum.LockType == "Index" and (k == "Hit" or k == "Target")) then
+        if getgenv().aluminum.Enabled == "Index" and (k == "Hit" or k == "Target") then
             -- // Hit to account prediction
-            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * getgenv.aluminum.HorizontalPrediction and getgenv.aluminum.VerticalPrediction)
 
             -- // Return modded val
             return (k == "Hit" and Hit or SelectedPart)
